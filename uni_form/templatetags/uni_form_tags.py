@@ -111,7 +111,8 @@ class BasicNode(template.Node):
                         'form_class' : form_class,
                         'form_id' : form_id,
                         'inputs' : inputs,
-                        'toggle_fields': final_toggle_fields
+                        'toggle_fields': final_toggle_fields,
+                        'csrf_token': context.get('csrf_token', '')
                         }
         c = Context(response_dict)
         return c
@@ -196,6 +197,8 @@ class UniFormNode(BasicNode):
     def render(self, context):
         
         c = self.get_render(context)
+        
+        print context
         
         template = get_template('uni_form/whole_uni_form.html')
         return template.render(c)
