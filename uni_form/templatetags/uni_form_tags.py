@@ -198,8 +198,6 @@ class UniFormNode(BasicNode):
         
         c = self.get_render(context)
         
-        print context
-        
         template = get_template('uni_form/whole_uni_form.html')
         return template.render(c)
         
